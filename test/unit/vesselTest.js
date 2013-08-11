@@ -126,3 +126,14 @@ VesselTest.prototype.testFlyToSpace = function() {
     // THEN
     assertEquals('Ship "Yandex". Placement: 1,1. Occupied: 0 from 1000t.', vessel.report());
 };
+
+VesselTest.prototype.testFlyToPlanet = function() {
+    // GIVEN
+    var vessel = new Vessel('Yandex', [0, 0], 1000);
+    var planet = new Planet('Alpha', [1,2], 5000);
+    // WHEN
+    vessel.flyTo(planet);
+    // THEN
+    assertEquals([1,2], vessel.prototype.position);
+    assertEquals('Ship "Yandex". Placement: Alpha (1,2). Occupied: 0 from 1000t.', vessel.report());
+};

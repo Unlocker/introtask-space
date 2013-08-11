@@ -30,13 +30,9 @@ Vessel.prototype.report = function() {
     if (this.prototype.placement === null) {
         place = this.prototype.position;
     } else {
-        place = this.prototype.placement;
+        place = this.prototype.placement + " (" + this.prototype.position + ")";
     }
-    // var placePhrase = "Местоположение: " + place + ".";
     var placePhrase = "Placement: " + place + ".";
-
-    //var cargoPhrase = "Занято: " + this.prototype.cargo 
-    //        + " из " + this.prototype.capacity + "т.";
     var cargoPhrase = "Occupied: " + this.prototype.cargo
             + " from " + this.prototype.capacity + "t.";
 
@@ -71,16 +67,21 @@ Vessel.prototype.getOccupiedSpace = function() {
  */
 Vessel.prototype.flyTo = function(newPosition) {
     if (newPosition !== null) {
-        if (newPosition.hasOwnProperty('name') && newPosition.hasOwnProperty('position')) {
-            this.prototype.placement = newPosition.prototype.name;
-            this.prototype.position = newPosition.prototype.position;
+        if (newPosition instanceof Planet) {
+            this.prototype.placement = newPosition.getName();
+            this.prototype.position = newPosition.getPosition();
         } else {
             this.prototype.placement = null;
+            this.prototype.position = newPosition;
         }
-        this.prototype.position = newPosition;
     }
 };
 
+/**
+ * Загрузка груза на корабль.
+ * @param {Number} weight вес груза
+ * @returns {undefined}
+ */
 Vessel.prototype.load = function(weight) {
     if (this.prototype.cargo + weight > this.prototype.capacity) {
         throw "the cargo weight is too big";
@@ -88,12 +89,17 @@ Vessel.prototype.load = function(weight) {
     this.prototype.cargo = this.prototype.cargo + weight;
 };
 
+/**
+ * Разгрузка груза
+ * @param {Number} weight вес груза
+ * @returns {Number} вес груза, который был разгружен
+ */
 Vessel.prototype.unload = function(weight) {
     if (this.prototype.cargo < weight) {
         var unloaded = this.prototype.cargo;
         this.prototype.cargo = 0;
         return unloaded;
     }
-    this.prototype.cargo = this.prototype.cargo - weight;
+    this.prototype.cargo -= weight;
     return weight;
 };
