@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="CDK group">
-            <file>file:/home/unlocker/Projects/introtask-space/app/js/planet.js</file>
-            <file>file:/home/unlocker/Projects/introtask-space/app/js/vessel.js</file>
-            <file>file:/home/unlocker/Projects/introtask-space/test/example.js</file>
-            <file>file:/home/unlocker/Projects/introtask-space/public_html/index.html</file>
             <file>file:/home/unlocker/Projects/introtask-space/test/unit/vesselTest.js</file>
+            <file>file:/home/unlocker/Projects/introtask-space/app/js/vessel.js</file>
+            <file>file:/home/unlocker/Projects/introtask-space/app/js/planet.js</file>
+            <file>file:/home/unlocker/Projects/introtask-space/test/unit/planetTest.js</file>
+            <file>file:/home/unlocker/Projects/introtask-space/test/unit/integration.js</file>
         </group>
     </open-files>
 </project-private>
